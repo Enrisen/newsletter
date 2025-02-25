@@ -1,11 +1,14 @@
-## run: run the cmd/web application
-.PHONY: run-app
-run-app:
-    @echo 'Running application…'
-    @go run ./cmd/web
+## run: run the cmd/web application and tests
+run:
+	go run cmd/web/main.go
 
-## test: run unit tests
-.PHONY: tests
-tests:
-    @echo 'Running tests…'
-    @go test ./cmd/web -v
+## build: build the cmd/web application
+build:
+	go build -o bin/web cmd/web/main.go
+
+## test: run the tests
+test:
+	go test -v ./...
+
+.PHONY: run build test
+
